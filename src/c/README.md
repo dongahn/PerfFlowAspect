@@ -37,6 +37,7 @@ our annotation parser code: i.e.,
 clang                     | clang                   | >= 6.0            | *1*
 llvm-devel                | llvm-dev                | >= 6.0            | *1*
 jansson-devel             | libjansson-dev          | >= 2.6            |
+openssl-devel             | libssl-dev              | >= 1.0.2          |
 cmake                     | cmake                   | >= 3.10           |
 flex                      | flex                    | >= 2.5.37         |
 bison                     | bison                   | >= 3.0.4          |
@@ -48,7 +49,7 @@ Please see our in-lined NOTE comments.*
 
 ##### Installing RedHat/CentOS Packages
 ```
-yum install clang llvm-devel gcc gcc-c++ jansson-devel cmake make flex bison
+yum install clang llvm-devel gcc gcc-c++ jansson-devel openssl-devel make make flex bison
 ```
 
 ##### Installing Ubuntu Packages
