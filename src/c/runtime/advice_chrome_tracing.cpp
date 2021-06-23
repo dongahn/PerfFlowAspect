@@ -242,35 +242,27 @@ const std::string advice_chrome_tracing_t::get_perfflow_instance_path ()
             instance_id = ss.str ();
         } else {
             std::string uniq_id = "1";
-	    printf ("uniq_id: %s\n", uniq_id.c_str ());
             char *uri = getenv ("FLUX_URI");
-	    printf ("uri: %s\n", uri);
             if (uri) {
                 std::string uri_copy = uri;
                 size_t found = uri_copy.find_first_of (":");
-	        printf ("found: %zu\n", found);
                 if (found != std::string::npos
                     && (found + 2) < uri_copy.length ()) {
                     std::string uri_path = uri_copy.substr (found+3);
-	            printf ("uri_path: %s\n", uri_path.c_str ());
                     found = uri_path.find_last_of ("/");
-	            printf ("found: %zu\n", found);
                     if (found != std::string::npos)
                         uniq_id = uri_path.substr (0, found);
-	            printf ("uniq_id: %s\n", uniq_id.c_str ());
                  }
             }
             unsigned char sha1[SHA_DIGEST_LENGTH];
             unsigned char *data = reinterpret_cast<unsigned char *> (
                                       const_cast<char *> (uniq_id.c_str ()));
-	    printf ("data: %s\n", data);
             SHA1 (data, uniq_id.length (), sha1);
             for (i = 0; i < 4; i++) {
                 ss << std::setw (2) << std::setfill ('0')
                    << std::hex << static_cast<int> (sha1[i]);
             }
             instance_id = ss.str ();
-	    printf ("instance_id: %s\n", instance_id.c_str ());
         }
     } else {
         instance_id = flux_job_id;
