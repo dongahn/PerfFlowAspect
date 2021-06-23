@@ -56,7 +56,7 @@ yum install clang llvm-devel gcc gcc-c++ jansson-devel openssl-devel make make f
 
 ```
 apt-get update
-apt install clang llvm-dev libjansson-dev bison flex make cmake make flex bison
+apt install clang llvm-dev libjansson-dev libssl-dev bison flex make cmake make flex bison
 ```
 
 ##### Building PerfFlowAspect Annotation Parser and Runtime
